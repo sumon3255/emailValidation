@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<style>
+    *{margin: 0; padding: 0;}
+    body{background: #ecf1f4; font-family: "Times New Roman", Times, serif;}
+    
+    .container{ width: 320px; background: #3e3d3d; padding: 40px 20px;
+         box-sizing: border-box; 
+         position: fixed;
+         left: 50%;
+        top: 50%; 
+        transform: translate(-50%, -50%);}
+        h1{text-align: center;
+         color: #fff; 
+         font-weight: normal; 
+         margin-bottom: 20px;}
+    
+    input{width: 100%; 
+        background: none; 
+        border: 1px solid #fff; 
+        border-radius: 3px;
+         padding: 6px 15px; 
+         box-sizing: border-box;
+        margin-bottom: 20px;
+        font-size: 16px; 
+        color: #fff;}
+    
+    input[type="button"]{ 
+         background: #bac675;
+         border: 0; 
+         cursor: pointer; 
+         color: #3e3d3d;}
+    input[type="button"]:hover{
+         background: #00885b;
+          transition: .6s;}
+    
+    ::placeholder{color: #fff;}
+    
+
+    #text{
+        display: block;
+        color: white;
+        font-weight: 200px;
+        font-style: italic;
+        padding: 1px;
+    }
+</style>
+<body>
+    <div class="container">
+    <form action="#" id="form">
+        <h1>Register</h1>
+        <input type="text" placeholder="Your Name">
+        <input type="text"  id="email" placeholder="Your Email" onkeydown="valid()">
+        <span id="text"></span>
+        <input type="text" placeholder="Your university ">
+        <input type="text" placeholder="Your Roll">
+        <input type="button" value="Register">
+    </form>
+    </div>
+    <script>
+    function valid(){
+        var form = document.getElementById("form");
+        var email = document.getElementById("email").value;
+        text =  document.getElementById("text");
+        var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if(email.match(pattern)){
+            form.classList.add("valid");
+            form.classList.remove("invalid");
+
+            text.innerHTML = "Your Mail is Valid";
+            text.style.color = "green";
+
+        }
+    
+        else{
+            form.classList.remove("invalid");
+            form.classList.add("valid");
+           
+            text.innerHTML = "Please Enter Valid Mail";
+            text.style.color = "red";
+        }
+        if(email == ""){
+            form.classList.add("valid");
+            form.classList.remove("invalid");
+
+            text.innerHTML = "Your Mail is Valid";
+            text.style.color = "green";
+
+        }
+    }
+
+    </script>
+</body>
+
+</html>
